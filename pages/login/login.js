@@ -32,7 +32,7 @@ Page({
     }, 500);
   },
   showIndex() {
-    // 重置动画状态
+    // 重置动画状态，一个聪明的做页面启动动画
     this.animateStatus = 0;
     this.setData({
       indexAnimateClass: 'transition_effect'
@@ -48,6 +48,7 @@ Page({
     this.animateOpacity(60, 0);
   },
   onTransitionEnd(){
+    // * 通过绑定一个status来更换动画效果
     switch (this.animateStatus) {
       case 0:
         // 进场动画结束
@@ -69,6 +70,8 @@ Page({
    * @param {number} y 动画最终y轴偏移距离
    * @param {number} o 动画最终透明度的值
    */
+  // https://developers.weixin.qq.com/miniprogram/dev/api/ui/animation/wx.createAnimation.html
+  // 创建小程序动画api，step()表示结尾，然后用export 导出动画
   animateOpacity(y, o) {
     const opacityAni = wx.createAnimation({
       duration: 600,
@@ -80,6 +83,7 @@ Page({
   },
   // 获取用户信息的回调,必须要在调用了wx.login之后且session没有过期
   onGetUserInfo(infoRes) {
+    // * app.loginPromise 是一个promisevalue
     app.loginPromise.then( () => {
       if (infoRes.detail.errMsg === 'getUserInfo:ok') {
         console.log('info res', infoRes.detail);
@@ -185,7 +189,7 @@ Page({
   },
   goShare(){
     wx.navigateTo({
-      url: '/pages/share/share',
+      url: '/packageA/pages/share/share',
     })
   }
 })

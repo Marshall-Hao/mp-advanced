@@ -22,10 +22,13 @@ App({
       success: (res) => {
         console.log(res)
         this.globalData.systemInfo = res;
+        // https://juejin.cn/post/6844904106088202254
+        // * 苹果手机适配 底部
         this.globalData.hasSafeArea = res.screenHeight > res.safeArea.bottom;
       }
     })
     // 进入小程序就直接调用一次wx.login，以备后续使用
+    // * 先异步运行这个promise,然后将then之后的promise value赋值给loginPromise
     this.loginPromise = wxLogin().then( res => {
       console.log('login res', res);
       return reqwest({
@@ -35,6 +38,7 @@ App({
         },
         method: 'POST'
       }).then(loginRes => {
+        console.log(loginRes)
         if(loginRes.data){
           this.globalData.uid = loginRes.data.uid;
           console.log('login complete, uid:', this.globalData.uid);

@@ -27,6 +27,7 @@ Page({
     })
   },
 
+  // * 销毁,返回，触发分享时才响应
   onMessage(e){
     console.log('小程序接收到webview消息', e);
     const data = e.detail.data;

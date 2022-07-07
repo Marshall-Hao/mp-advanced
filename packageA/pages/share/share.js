@@ -23,6 +23,7 @@ Page({
 
   /**
    * 分享
+   * btn的 open-type share会触发此事件
    */
   onShareAppMessage: function (e) {
     console.log(e.from);

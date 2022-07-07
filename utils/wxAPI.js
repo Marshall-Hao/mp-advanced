@@ -18,6 +18,8 @@ function wxPromisify(fn) {
       obj.fail = (resp) => {
         reject(resp)
       }
+      console.log(obj)
+      console.log(fn)
       fn(obj)
     })
   }

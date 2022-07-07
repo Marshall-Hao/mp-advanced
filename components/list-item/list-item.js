@@ -33,7 +33,7 @@ Component({
     // console.log('我是组件:', this.data.itemIndex);
     let info = SystemInfo.getInfo();
     let { windowHeight = 667 } = info.source.system;
-    let showNum = 1 // 超过屏幕的数量，目前这个设置是上下2屏，也就是observer视窗高度为5个屏高
+    let showNum = 1 // 超过屏幕的数量，目前这个设置是上下2屏，也就是observer视窗高度为3个屏高
     try {
       this.observer = this.createIntersectionObserver();
       // 监听进入或移出屏幕的上下两屏范围的item

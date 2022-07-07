@@ -1,5 +1,7 @@
 <view class="login_container">
   <image class="container_bg_img" src="/images/index_bg.jpg" style="left: -{{transLeft}}px"/>
+  <!-- https://developers.weixin.qq.com/miniprogram/dev/reference/wxml/template.html -->
+  <!-- template 可以动态引入别的template, data属性的传入确保模版里所用的data -->
   <template is="{{show}}" data="{{indexAnimateClass,selectAnimateClass,hasSafeArea,opacityAni,isLogin,bookList,bookIndex}}" />
 </view>
 
@@ -11,6 +13,7 @@
       <view class="index_girl_box {{indexAnimateClass}}">
         <image class="index_content_girl" src="/images/mgirl.png" />
       </view>
+      <!--  CSS 渐变结束 bindtransitionend 监听动画事件-->
       <image class="index_person_left {{indexAnimateClass}}" bindtransitionend="onTransitionEnd" src="/images/index-boy1-colorful.png" />
       <image class="index_person_right {{indexAnimateClass}}" src="/images/index-boy2.png" />
     </view>

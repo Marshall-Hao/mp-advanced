@@ -66,7 +66,7 @@ Page({
     Stomp.clearInterval = function (id) {
       return clearInterval(id);
     }
-    // 设置Stomp sdk所需的websocket协议
+    // 设置Stomp sdk所需的websocket协议.stomp.over方法传入协议
     // Web环境可以不做这步
     this.client = Stomp.over(ws);
     this.client.debugger = console.log;
@@ -134,6 +134,7 @@ Page({
       mockList.forEach((item, index) => {
         listDelta[`list[${listLength + index}]`] = item;
       })
+      // * this is a smart way to improve the setData
       console.log('listDelta', listDelta);
       this.setData(
         {
