@@ -1,11 +1,12 @@
 <wxs module="pull" src="./pull.wxs"></wxs>
 <view class="wrapper">
   <view class="header">固定的头部</view>
+  <!--  change:prop 监控prop的变化api -->
   <scroll-view 
     class="pulldown-wrapper"
     bindtouchstart="{{pull.touchStart}}" 
     bindtouchmove="{{pull.touchMove}}" 
-    bindtouchend="{{pull.touchEnd}}"
+    bindtouchend="{{pull.touchEnd}}" 
     change:prop="{{pull.monitorShowRefresh}}" 
     prop="{{showRefresh}}"
   >

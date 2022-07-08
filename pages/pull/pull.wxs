@@ -26,9 +26,10 @@ var touchStart = function (e, ins) {
 /**
  * 触摸事件移动
  * @param e 
- * @param ins 
+ * @param ins 页面实例 就是页面里面的东西都可以访问到
  */
 var touchMove = function (e, ins) {
+  console.log(ins)
   //如果正在loading，则不进行接下来的行为
   if (loading) {
     return false
@@ -99,6 +100,7 @@ var touchEnd = function (e, ins) {
  * @param ins 
  */
 var loadingTypeChange = function (newValue, oldValue, ownerInstance, ins) {
+  console.log(ownerInstance,ins)
   if (newValue === false) {
     // 刷新完成，则绘制动画回到顶部
     drawTransitionY(ownerInstance, '.list-container', 300, Math.min(moveRefreshDistance, moveDistance), 0)
