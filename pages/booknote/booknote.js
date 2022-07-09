@@ -134,7 +134,7 @@ Page({
       mockList.forEach((item, index) => {
         listDelta[`list[${listLength + index}]`] = item;
       })
-      // * this is a smart way to improve the setData
+      // * this is a smart way to improve the setData！！！
       console.log('listDelta', listDelta);
       this.setData(
         {
